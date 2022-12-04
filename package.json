@@ -1,0 +1,34 @@
+{
+  "name": "@vigihdev/code-dev",
+  "description": "Code Dev Div Dup Dop Ts Npm",
+  "author": "Vigih Dev",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vigihdev/code-dev.git"
+  },
+  "main": "out/index.js",
+  "types": "out/index.d.ts",
+  "files": [
+    "out/**/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts --fix",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.10",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "eslint": "^6.8.0",
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.1"
+  }
+}

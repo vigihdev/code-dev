@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "outDir": "out",
+    "declaration": true,
+		"allowJs": true,
+		"resolveJsonModule": true
+  },
+  "include": [
+    "src/**/*.ts",
+  ],
+}
