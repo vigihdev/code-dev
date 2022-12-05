@@ -19,7 +19,8 @@
   "scripts": {
     "compile": "tsc -p ./",
     "lint": "eslint src --ext ts --fix",
-    "watch": "tsc -watch -p ./"
+    "watch": "tsc -watch -p ./",
+    "gruntInit": "node -e 'require(\"'./scripts/grunt.js'\").init()'"
   },
   "devDependencies": {
     "@types/node": "^18.11.10",

@@ -4,6 +4,7 @@ import * as fs from "node:fs";
 export type extOption = ".js"|".scss"|".css"|".php"|".html";
 export type itemOptions = "normalizePath"| "exclude"| "attributes"| "extensions"| "followSymlinks"| "depth";
 type itemsOptions = "path"| "name"| "size"| "type"| "children"| "extension"| "isSymbolicLink"| "custom";
+
 const defaultOption : Tree.DirectoryTreeOptions = {
 	exclude:/\.DS_Store/,
 	attributes:["extension","type"]
@@ -14,61 +15,52 @@ function delay(ms: number) {
 }
 
 export default class TreeDirectory{
-	// private options:Tree.DirectoryTreeOptions;
 	private item:Tree.DirectoryTree;
 	itemJs:string[];
 	itemScss:string[];
 	itemCss:string[];
 
-	constructor(basePath:string,options?:Tree.DirectoryTreeOptions) {
-		let resultScss : string[] = [];
-		if(fs.existsSync(basePath)){
-			Tree(basePath,options).children?.forEach(item => {
-				
-				// item.children?.forEach(item1 => {});
-				item.children?.forEach(item1 => {
-					item1.children?.forEach(item2 => {
-						item2.children?.forEach(item3 => {
-							resultScss.push(item3.path);
-							
-						// 	// if(this.isFileExt(item3,".scss")){
-						// 	// 	this.itemScss.push(item3.path);
-						// 	// }
+	constructor(itemsPath:string[],options?:Tree.DirectoryTreeOptions) {
+		let scss : string[] = [];
+		let css : string[] = [];
+		let js : string[] = [];
 
-							item3.children?.forEach(item4 => {
-								resultScss.concat(item4.path);
-						// 		// if(this.isFileExt(item4,".scss")){
-						// 		// 	this.itemScss.push(item4.path);
-						// 		// }
-
-								item4.children?.forEach(item5 => {
-
+		itemsPath.forEach(basePath => {
+			if(fs.existsSync(basePath)){
+				Tree(basePath,options).children?.forEach(item => {
+					// item.children?.forEach(item1 => {});
+					item.children?.forEach(item1 => {
+						treeIsFileExt(item1,'.scss') ? scss.push(item1.path) : true;
+						treeIsFileExt(item1,'.css') ? css.push(item1.path) : true;
+						treeIsFileExt(item1,'.js') ? js.push(item1.path) : true;
+						item1.children?.forEach(item2 => {
+							treeIsFileExt(item2,'.scss') ? scss.push(item2.path) : true;
+							treeIsFileExt(item2,'.css') ? css.push(item2.path) : true;
+							treeIsFileExt(item2,'.js') ? js.push(item2.path) : true;
+							item2.children?.forEach(item3 => {
+								treeIsFileExt(item3,'.scss') ? scss.push(item3.path) : true;
+								treeIsFileExt(item3,'.css') ? css.push(item3.path) : true;
+								treeIsFileExt(item3,'.js') ? js.push(item3.path) : true;
+								item3.children?.forEach(item4 => {
+									treeIsFileExt(item4,'.scss') ? scss.push(item4.path) : true;
+									treeIsFileExt(item4,'.css') ? css.push(item4.path) : true;
+									treeIsFileExt(item4,'.js') ? js.push(item4.path) : true;
+									item4.children?.forEach(item5 => {
+										treeIsFileExt(item5,'.scss') ? scss.push(item5.path) : true;
+										treeIsFileExt(item5,'.css') ? css.push(item5.path) : true;
+										treeIsFileExt(item5,'.js') ? js.push(item5.path) : true;
+									});
 								});
 							});
 						});
+						
 					});
 				});
-			});
-		}
-		delay(1500);
-		console.log(resultScss);
-		
-		this.itemScss = resultScss;
-	}
-
-	isFileExt(item:Tree.DirectoryTree,ext:extOption):boolean{
-		return item.extension !== undefined && item.extension === ext;
-	}
-
-	getItem(opt?:itemOptions):Tree.DirectoryTree{
-		return opt === undefined ? this.item : this.item[opt];
-	}
-
-	isFile(ext?:extOption):boolean{
-		if(this.item.extension){
-			return ext === undefined ? true : ext === ext;
-		}
-		return false;
+			}
+		});
+		this.itemScss = scss;
+		this.itemCss = css;
+		this.itemJs = js;
 	}
 }
 

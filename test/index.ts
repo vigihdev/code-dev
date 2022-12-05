@@ -1,9 +1,10 @@
 import * as fs from "fs";
 import { dirname } from "path";
-import { arrayFirst, arrayIndexBy, arrayIndexByRegex, arrayNext, assert, camelCase, DIRECTORY_SEPARATOR, filenameSameDir, getDirs, inArray, strOrDefauld, strToArray, tests } from "../out";
+import { arrayFirst, arrayIndexBy, arrayIndexByRegex, arrayLast, arrayNext, assert, camelCase, DIRECTORY_SEPARATOR, filenameSameDir, getDirs, inArray, ltrims, path, rtrims, strOrDefauld, strToArray, tests } from "../out";
 import { isBoolean } from "../out/common/types";
 import * as Tree from "directory-tree";
 import TreeDirectory, { treeIsFileExt } from "../out/helpers/treeDirectory";
+import { ltrim } from "../out/common/strings";
 
 const basePath = dirname(dirname(dirname(__dirname))) + DIRECTORY_SEPARATOR + 'Sites/dev/pwa/bower';
 const filterDir = ['app','node_modules','grunt','mixins'];
@@ -17,32 +18,16 @@ const options : Tree.DirectoryTreeOptions = {
 	exclude:/\.DS_Store/,
 	attributes:["extension","type"]
 };
-
 const result : string[] = [];
-newDir.forEach(dir => {
-	Tree(dir,options).children?.forEach(t => {
-		// t.children?.forEach(t1 => {});
-		t.children?.forEach(t1 => {
-			t1.children?.forEach(t2 => {
-				t2.children?.forEach(t3 => {
-					if(treeIsFileExt(t3,'.scss')){
-						result.push(strOrDefauld(t3.path,''));
-					}
-					// console.log(treeIsFileExt(t3,'.scss'));
-					t3.children?.forEach(t4 => {
-						// console.log(treeIsFileExt(t4,'.scss'));
-					});
-				});
-			});
-		});
-		
-	});
-	
-});
-
 result.forEach(t => {
 	filenameSameDir(t);
 });
+
+const fileTree = new TreeDirectory(newDir,options);
+console.log(fileTree.itemJs.filter(p => /\/dist\//g.test(p) ));
+console.log(fileTree.itemScss.filter(p => !tests( arrayLast(p.split('/')),/_/g) && filenameSameDir(p) )  );
+
+
 console.log(
 	// result
 	// getDirs(basePath,filterDir,indexByDir)
