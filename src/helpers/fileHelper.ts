@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import { dirname } from "path";
-import { arrayIndexBy, arrayNotIn } from "./arrayHelper";
+import path = require("path");
+import { arrayIndexBy, arrayNotIn, inArray } from "./arrayHelper";
 import { DIRECTORY_SEPARATOR } from "./stringHelper";
 
 export function getDirs(basePath: string, notIn?: string[],indexBy?:string[]): string[] {
@@ -19,4 +20,12 @@ export function getDirs(basePath: string, notIn?: string[],indexBy?:string[]): s
 
 export function scanFiles(fullPath: string) {
 
+}
+
+export function filenameSameDir(fullName:string) {
+	if(fs.existsSync(fullName)){
+		const paths = path.parse(fullName);
+		if(inArray(paths.name,paths.dir.split('/'))){
+		}
+	}
 }

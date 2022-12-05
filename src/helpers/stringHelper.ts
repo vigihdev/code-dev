@@ -1,6 +1,11 @@
 import { isNull } from "util";
+import { isString } from "../common/types";
 
 export const DIRECTORY_SEPARATOR = '/';
+
+export function strOrDefauld<T>(param:T,defaultValue:T):T{
+	return typeof param === 'string' ? param : defaultValue; 
+}
 
 export function tests(str:string,regex:RegExp):boolean{
 	return regex.test(str);

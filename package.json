@@ -29,6 +29,7 @@
     "typescript": "^3.9.3"
   },
   "dependencies": {
+    "directory-tree": "^3.4.0",
     "ts-node": "^10.9.1"
   }
 }
