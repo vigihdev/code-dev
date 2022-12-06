@@ -1,0 +1,56 @@
+[
+    {
+        "expand": true,
+        "cwd": "bower/bootstrap/scss",
+        "src": [
+            "bootstrap.scss"
+        ],
+        "dest": "bower/bootstrap/dist/css",
+        "ext": ".css"
+    },
+    {
+        "expand": true,
+        "cwd": "bower/bootstrap-components/src/scss",
+        "src": [
+            "bootstrap-components.scss"
+        ],
+        "dest": "bower/bootstrap-components/src/dist/css",
+        "ext": ".css"
+    },
+    {
+        "expand": true,
+        "cwd": "bower/themes/src/scss",
+        "src": [
+            "themes.scss"
+        ],
+        "dest": "bower/themes/src/dist/css",
+        "ext": ".css"
+    },
+    {
+        "expand": true,
+        "cwd": "bower/elevation/src/scss",
+        "src": [
+            "elevation.scss"
+        ],
+        "dest": "bower/elevation/src/dist/css",
+        "ext": ".css"
+    },
+    {
+        "expand": true,
+        "cwd": "bower/page/src/scss",
+        "src": [
+            "page.scss"
+        ],
+        "dest": "bower/page/src/dist/css",
+        "ext": ".css"
+    },
+    {
+        "expand": true,
+        "cwd": "bower/themes-dark-tint/src/scss",
+        "src": [
+            "themes-dark-tint.scss"
+        ],
+        "dest": "bower/themes-dark-tint/src/dist/css",
+        "ext": ".css"
+    }
+]

@@ -20,6 +20,7 @@
     "compile": "tsc -p ./",
     "lint": "eslint src --ext ts --fix",
     "watch": "tsc -watch -p ./",
+    "dev:script":"nodemon -e ts,js --watch src --watch ./scripts scripts/grunt.js",
     "gruntInit": "node -e 'require(\"'./scripts/grunt.js'\").init()'"
   },
   "devDependencies": {

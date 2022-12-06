@@ -1,0 +1,10 @@
+{
+    "bower/app/dist/css/app.css": [
+        "bower/bootstrap/dist/css/bootstrap.css",
+        "bower/bootstrap-components/src/dist/css/bootstrap-components.css",
+        "bower/themes/src/dist/css/themes.css",
+        "bower/elevation/src/dist/css/elevation.css",
+        "bower/page/src/dist/css/page.css",
+        "bower/themes-dark-tint/src/dist/css/themes-dark-tint.css"
+    ]
+}
