@@ -21,6 +21,7 @@ export function treeScanAllFile(basePath:string,options?:Tree.DirectoryTreeOptio
 		let listDir = Tree(basePath,mixin(defaultOption,options,true));
 
 		listDir.children?.forEach(item => {
+			treeIsFile(item) ? result.push(item.path) : true;
 			item.children?.forEach(item1 => {
 				// item.children?.forEach(item1 => {});
 				treeIsFile(item1) ? result.push(item1.path) : true;

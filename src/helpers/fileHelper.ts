@@ -34,3 +34,7 @@ export function pathCutRegex(paths:string,endStr:string):string{
 
 	return paths.replace(new RegExp('.*?' + endStr,'g'),endStr);
 }
+
+export function isExtJs(str:string):boolean{
+	return str.substr(-3) === '.js';
+}

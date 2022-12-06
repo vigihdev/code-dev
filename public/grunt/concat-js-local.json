@@ -1,0 +1,31 @@
+{
+    "bower/bootstrap-components/src/dist/js/bootstrap-components.js": [
+        "bower/bootstrap-components/src/js/modal.js",
+        "bower/bootstrap-components/src/js/password-visibility.js",
+        "bower/bootstrap-components/src/js/ripple-effect.js",
+        "bower/bootstrap-components/src/js/switch.js",
+        "bower/bootstrap-components/src/js/text-fields.js"
+    ],
+    "bower/themes/src/dist/js/themes.js": [
+        "bower/themes/src/js/footer-menu.js"
+    ],
+    "bower/jquery/src/dist/js/jquery.js": [
+        "bower/jquery/src/js/jquery.js"
+    ],
+    "bower/plugin-js/src/dist/js/plugin-js.js": [
+        "bower/plugin-js/src/js/clipboard.js",
+        "bower/plugin-js/src/js/easytimer.js",
+        "bower/plugin-js/src/js/moment.js",
+        "bower/plugin-js/src/js/popper.js"
+    ],
+    "bower/themes-test/src/dist/js/themes-test.js": [
+        "bower/themes-test/src/js/sidebar.js"
+    ],
+    "bower/yii2/src/dist/js/yii2.js": [
+        "bower/yii2/src/js/yii.js",
+        "bower/yii2/src/js/plugin/yii.activeForm.js",
+        "bower/yii2/src/js/plugin/yii.captcha.js",
+        "bower/yii2/src/js/plugin/yii.gridView.js",
+        "bower/yii2/src/js/plugin/yii.validation.js"
+    ]
+}
