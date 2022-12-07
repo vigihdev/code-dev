@@ -24,7 +24,8 @@
     "lint": "eslint src --ext ts --fix",
     "watch": "tsc -watch -p ./",
     "dev:script":"nodemon -e ts,js --watch src --watch ./scripts scripts/fileDocument.js",
-    "gruntInit": "node -e 'require(\"'./scripts/grunt.js'\").init()'"
+    "gruntInit": "node -e 'require(\"'./scripts/grunt.js'\").init()'",
+    "test": "node --test test"
   },
   "devDependencies": {
     "@types/node": "^18.11.10",

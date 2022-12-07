@@ -29,3 +29,11 @@ export function arrayNotIn(item:string,notIn:string[]):boolean {
 export function inArray(needle:string,haystack:string[]):boolean {
 	return haystack.filter(n => n === needle).length > 0;
 }
+
+export function arrayMergeUnique<T extends string[]>(a:T,b:T,c?:T,d?:T):string[] {
+	return [...new Set(a.concat(b,(c ?? []),(d ?? [])) )];
+}
+
+export function arrayUnique(arr:string[]):string[]{
+	return [...new Set(arr)];
+}
