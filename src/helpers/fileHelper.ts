@@ -31,7 +31,6 @@ export function scanDirectory(basePath: string,options?:scanDirectoryOptions):st
 }
 
 export function pathCutRegex(paths:string,endStr:string):string{
-
 	return paths.replace(new RegExp('.*?' + endStr,'g'),endStr);
 }
 

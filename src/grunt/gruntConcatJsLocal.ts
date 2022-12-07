@@ -5,7 +5,6 @@ import BaseGrunt from './baseGrunt';
 
 //'dest/compiled.css': ['src/styles/componentA.css', 'src/styles/componentB.css'],
 
-
 export default class GruntConcatJsLocal extends BaseGrunt{
 	private items:Object;
 	private parentPath:string;

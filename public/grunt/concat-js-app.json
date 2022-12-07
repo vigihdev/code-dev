@@ -1,0 +1,10 @@
+{
+    "bower/app/dist/js/app.js": [
+        "bower/plugin-js/src/dist/js/plugin-js.js",
+        "bower/bootstrap/dist/js/bootstrap.js",
+        "bower/bootstrap-components/src/dist/js/bootstrap-components.js",
+        "bower/themes/src/dist/js/themes.js",
+        "bower/yii2/src/dist/js/yii2.js",
+        "bower/themes-test/src/dist/js/themes-test.js"
+    ]
+}

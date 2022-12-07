@@ -1,15 +1,6 @@
 
-export function arrayIndexBy(item:string[],index:string[]):string[] {
-	const result : string[] = [];
-
-	item.forEach(itm => {
-		index?.forEach(idx => {
-			if(idx === itm){
-				result.push(itm);
-			}
-		});
-	});
-	return [...new Set(result.concat(item))];
+export function arrayIndexBy(item:string[],indexBy:string[]):string[] {
+	return [...new Set(indexBy.concat(item))];
 }
 
 export function arrayIndexByRegex(item:string[],index:string[],regex:RegExp):string[] {

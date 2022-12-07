@@ -11,16 +11,19 @@
   "main": "out/index.js",
   "types": "out/index.d.ts",
   "files": [
-    "out/**/*"
+    "out/**/*",
+    "scripts",
+    "public"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "compile": "tsc -p ./",
     "lint": "eslint src --ext ts --fix",
     "watch": "tsc -watch -p ./",
-    "dev:script":"nodemon -e ts,js --watch src --watch ./scripts scripts/grunt.js && compile",
+    "dev:script":"nodemon -e ts,js --watch src --watch ./scripts scripts/fileDocument.js",
     "gruntInit": "node -e 'require(\"'./scripts/grunt.js'\").init()'"
   },
   "devDependencies": {
