@@ -34,6 +34,41 @@ export function pathCutRegex(paths:string,endStr:string):string{
 	return paths.replace(new RegExp('.*?' + endStr,'g'),endStr);
 }
 
+export function isDirname(basePath:string):string{
+	return isDir(basePath) ? path.parse(basePath).name : '';
+}
+
+export function isDir(basePath:string):boolean{
+	try {
+        var stat = fs.lstatSync(basePath);
+        return stat.isDirectory();
+    } catch (e) {
+        return false;
+    }
+}
+
+export function isFile(fullName:string):boolean{
+	try {
+        var stat = fs.lstatSync(fullName);
+        return stat.isFile();
+    } catch (e) {
+        return false;
+    }
+}
+
 export function isExtJs(str:string):boolean{
 	return str.substr(-3) === '.js';
 }
+
+export function isExtCss(str:string):boolean{
+	return str.substr(-4) === '.css';
+}
+
+export function isExtPhp(str:string):boolean{
+	return str.substr(-4) === '.php';
+}
+
+export function isExtScss(str:string):boolean{
+	return str.substr(-5) === '.scss';
+}
+

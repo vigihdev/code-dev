@@ -3,13 +3,6 @@ export function arrayIndexBy(item:string[],indexBy:string[]):string[] {
 	return [...new Set(indexBy.concat(item))];
 }
 
-export function arrayIndexByRegex(item:string[],index:string[],regex:RegExp):string[] {
-	const result : string[] = [];
-	item.forEach(i => {
-	});
-	return result;
-}
-
 export function arrayFirst(item:string[]):string {
 	return item.length === 0 ? '' : item.slice(0,1).pop();
 }
@@ -36,4 +29,11 @@ export function arrayMergeUnique<T extends string[]>(a:T,b:T,c?:T,d?:T):string[]
 
 export function arrayUnique(arr:string[]):string[]{
 	return [...new Set(arr)];
+}
+
+export function arrayRemove(remove:string[],items:string[]):string[]{
+	const exist = (r:string):boolean => {
+		return remove.filter(t => t === r).length > 0;
+	};
+	return arrayUnique(items).filter(i => !exist(i));
 }
