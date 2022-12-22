@@ -16,5 +16,6 @@ export default class BaseGrunt{
 				console.log(e);
 			}
 		}
+		
 	}
 }
