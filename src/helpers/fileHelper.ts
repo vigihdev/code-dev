@@ -27,6 +27,7 @@ export function scanDirectory(basePath: string,options?:scanDirectoryOptions):st
 			listDir.map(t => result.push(basePath + DIRECTORY_SEPARATOR + t));
 		}
 	}
+	
 	return result;
 }
 
